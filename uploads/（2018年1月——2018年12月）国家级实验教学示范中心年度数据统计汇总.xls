@@ -1,0 +1,336 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel"xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>Worksheet</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--> <style type="text/css">.excelTable  {border-collapse:collapse; border:thin solid #999; }   .excelTable  th {   border: thin solid #999;  padding:20px;  text-align: center;  border-top: thin solid #999; background-color: #E6E6E6; } .excelTable  td{ border:thin solid #999;  padding:2px 5px;  text-align: center; }</style></head><body ><table class="excelTable">
+				
+				<thead>
+				<tr class="title">
+				<td style="display:none" colspan="5">国家级实验教学示范中心年度数据统计汇总</td>
+				</tr>
+				<tr class="title">
+				<td style="display:none" colspan="5">（2018年1月——2018年12月）</td>
+				</tr>
+					<tr class="title">
+						<th colspan="5">一、示范中心总体情况</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th colspan="2">批准立项年份</th>
+						<td>
+							2009
+						</td>
+						<th>通过验收年份</th>
+						<td>2013</td>
+					</tr>
+					<tr>
+						<th colspan="2">学科组</th>
+						<td width="25%">文综/考古/法学组</td>
+						<th>所属省份</th>
+						<td width="25%">浙江省</td>
+					</tr>
+					<tr>
+						<th colspan="2">示范中心名称</th>
+						<td>文科综合实验教学中心</td>
+						<th>院校类型</th>
+						<td>地方院校</td>
+					</tr>
+					<tr>
+						<th colspan="2">所在学校名称</th>
+						<td>浙江师范大学</td>
+						<th>示范中心门户网址</th>
+						<td>http://wenke.zjnu.edu.cn/</td>
+					</tr>
+					<tr>
+						<th colspan="2">主管部门名称</th>
+						<td>浙江省</td>
+						<th>邮政编码</th>
+						<td>321004</td>
+					</tr>
+					<tr>
+						<th colspan="2">示范中心详细地址</th>
+						<td colspan="4">浙江金华浙江师范大学29栋</td>
+					</tr>
+					<tr>
+						<th colspan="5" style="color:#ff0000;font-weight: normal;"></th>
+					</tr>
+				</tbody>
+				<thead>
+					<tr class="title">
+						<th colspan="5">二、示范中心年度统计数据</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>序号</th>
+						<th>项目</th>
+						<th>内容</th>
+						<th colspan="2">统计数值</th>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td rowspan="5">中心基本情况</td>
+						<td>建筑面积（㎡）</td>
+						<td colspan="2">13,228</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>设备总值（万元）</td>
+						<td colspan="2">4,945</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>设备台数（台）</td>
+						<td colspan="2">12,904</td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td>主管部门年度经费投入（万元）</td>
+						<td colspan="2">0</td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td>所在学校年度经费投入（万元）</td>
+						<td colspan="2">338.2</td>
+					</tr>
+					
+					
+					
+					<tr>
+						<td>6</td>
+						<td rowspan="12">人才培养</td>
+						<td>面向的专业数（个）</td>
+						<td colspan="2">32</td>
+					</tr>
+					<tr>
+						<td>7</td>
+						<td>面向的专业年级数（个）</td>
+						<td colspan="2">5</td>
+					</tr>
+					<tr>
+						<td>8</td>
+						<td>学生总人数（人）</td>
+						<td colspan="2">9,671</td>
+					</tr>
+					<tr>
+						<td>9</td>
+						<td>人时总数（学时）</td>
+						<td colspan="2">736,510</td>
+					</tr>
+					<tr>
+						<td>10</td>
+						<td>实验项目资源总数（个）</td>
+						<td colspan="2">1,138</td>
+					</tr>
+					<tr>
+						<td>11</td>
+						<td>年度开设实验项目数（个）</td>
+						<td colspan="2">997</td>
+					</tr>
+					<tr>
+						<td>12</td>
+						<td>年度独立设课的实验课程（门）</td>
+						<td colspan="2">208</td>
+					</tr>
+					<tr>
+						<td>13</td>
+						<td>实验教材总数（种）</td> 
+						<td colspan="2">24</td>
+					</tr>
+					<tr>
+						<td>14</td>
+						<td>年度新增实验教材（种）</td>
+						<td colspan="2">2</td>
+					</tr>
+					<tr>
+						<td>15</td>
+						<td>学生获奖人数（人）</td>
+						<td colspan="2">70</td>
+					</tr>
+					<tr>
+						<td>16</td>
+						<td>学生发表论文数（篇）</td>
+						<td colspan="2">82</td>
+					</tr>
+					<tr>
+						<td>17</td>
+						<td>学生获得专利数（项）</td>
+						<td colspan="2">0</td>
+					</tr>
+					<tr>
+						<td>18</td>
+						<td rowspan="14">教学改革与科学研究</td>
+						<td>省部级以上教学改革项目总数</td>
+						<td colspan="2">3</td>
+					</tr>
+					<tr>
+						<td>19</td>
+						<td>教学改革项目总经费（万元）</td>
+						<td colspan="2">6</td>
+					</tr>
+					<tr>
+						<td>20</td>
+						<td>省部级以上科研项目总数</td>
+						<td colspan="2">13</td>
+					</tr>
+					<tr>
+						<td>21</td>
+						<td>科研项目总经费（万元）</td>
+						<td colspan="2">238.5</td>
+					</tr>
+					<tr>
+						<td>22</td>
+						<td>发明专利总数（个）</td>
+						<td colspan="2">9</td>
+					</tr>
+					<tr>
+						<td>23</td>
+						<td>发表论文、专著总数</td>
+						<td colspan="2">88</td>
+					</tr>
+					<tr>
+						<td>24</td>
+						<td>国内重要刊物论文篇数（篇）</td>
+						<td colspan="2">41</td>
+					</tr>
+					<tr>
+						<td>25</td>
+						<td>仪器设备的研制和改装总数</td>
+						<td colspan="2">0</td>
+					</tr>
+					<tr>
+						<td>26</td>
+						<td>推广和应用的高校数</td>
+						<td colspan="2">0</td>
+					</tr>
+					<tr>
+						<td>27</td>
+						<td>国内会议论文数（篇）</td>
+						<td colspan="2">20</td>
+					</tr>
+					<tr>
+						<td>28</td>
+						<td>国际会议论文数（篇）</td>
+						<td colspan="2">0</td>
+					</tr>
+					<tr>
+						<td>29</td>
+						<td>国内一般刊物发表论文数（篇）</td>
+						<td colspan="2">32</td>
+					</tr>
+					<tr>
+						<td>30</td>
+						<td>省部委奖数（项）</td>
+						<td colspan="2">6</td>
+					</tr>
+					<tr>
+						<td>31</td>
+						<td>其它奖数（项）</td>
+						<td colspan="2">3</td>
+					</tr>
+					<tr>
+						<td>32</td>
+						<td rowspan="5">队伍建设</td>
+						<td>本年度固定人员总数</td>
+						<td colspan="2">138</td>
+					</tr>
+					
+					<tr>
+						<td>33</td>
+						<td>固定人员中高级职称人数</td>
+						<td colspan="2">90</td>
+					</tr>
+					<tr>
+						<td>34</td>
+						<td>固定人员中博士学位人数</td>
+						<td colspan="2">40</td>
+					</tr>
+					<tr>
+						<td>35</td>
+						<td>本年度流动人员总数</td>
+						<td colspan="2">8</td>
+					</tr>
+					<tr>
+						<td>36</td>
+						<td>是否成立教学指导委员会人员</td>
+						<td colspan="2">是</td>
+					</tr>
+					<tr>
+						<td>37</td>
+						<td rowspan="4">信息化建设</td>
+						<td>中心网址年度访问总量（人次）</td>
+						<td colspan="2">9,950</td>
+					</tr>
+					<tr>
+						<td>38</td>
+						<td>信息化资源总量（Mb）</td>
+						<td colspan="2">333,872</td>
+					</tr>
+					<tr>
+						<td>39</td>
+						<td>信息化资源年度更新量（Mb）</td>
+						<td colspan="2">82,600</td>
+					</tr>
+					<tr>
+						<td>40</td>
+						<td>虚拟仿真实验教学项目（项）</td>
+						<td colspan="2">130</td>
+					</tr>
+					<tr>
+						<td>41</td>
+						<td rowspan="8">示范与交流</td>
+						<td>参加示范中心联席会活动人次数（人次）</td>
+						<td colspan="2">4</td>
+					</tr>
+					<tr>
+						<td>42</td>
+						<td>承办大型会议次数（次）</td>
+						<td colspan="2">10</td>
+					</tr>
+					<tr>
+						<td>43</td>
+						<td>参加大型会议次数（次）</td>
+						<td colspan="2">25</td>
+					</tr>
+					<tr>
+						<td>44</td>
+						<td>承办竞赛次数（次）</td>
+						<td colspan="2">12</td>
+					</tr>
+					<tr>
+						<td>45</td>
+						<td>开展科普活动次数（次）</td>
+						<td colspan="2">6</td>
+					</tr>
+					<tr>
+						<td>46</td>
+						<td>接受进修人员数（人）</td>
+						<td colspan="2">1,437</td>
+					</tr>
+					<tr>
+						<td>47</td>
+						<td>承办培训项目数（个）</td>
+						<td colspan="2">26</td>
+					</tr>
+					<tr>
+						<td>48</td>
+						<td>安全教育培训人次数（人次）</td>
+						<td colspan="2">1,840</td>
+					</tr>
+					<tr>
+						<td>49</td>
+						<td rowspan="3">其他</td>
+						<td>是否发生安全责任事故</td>
+						<td colspan="2">否</td>
+					</tr>
+					<tr>
+						<td>50</td>
+						<td>伤亡人数-伤（人）</td>
+						<td colspan="2">0</td>
+					</tr>
+					<tr>
+						<td>51</td>
+						<td>伤亡人数-亡（人）</td>
+						<td colspan="2">0</td>
+					</tr>
+					
+				</tbody>
+				
+			</table></body></html>

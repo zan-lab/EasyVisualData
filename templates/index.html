@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link href="static/layui/css/layui.css" rel="stylesheet" type="text/css">
+		<title>数据可视化系统</title>
+	</head>
+	<body>
+		<!--上面的导航 -->
+		<div class="layui-layout layui-layout-admin">
+		  <div class="layui-header">
+		    <div class="layui-logo">数据可视化系统</div>
+		    
+		    
+		    <ul class="layui-nav layui-layout-right">
+		      <li class="layui-nav-item">
+		        <a href="javascript:;">
+		          <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+		          
+		        </a>
+		        <dl class="layui-nav-child">
+		          <dd><a href="">基本资料</a></dd>
+		          <dd><a href="">安全设置</a></dd>
+		        </dl>
+		      </li>
+		      <li class="layui-nav-item"><a href="">退了</a></li>
+		    </ul>
+		  </div>
+		  <!--左侧导航 -->
+		  <div class="layui-side layui-bg-black">
+		    <div class="layui-side-scroll">
+		    
+		      <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+		        <li class="layui-nav-item layui-nav-itemed" id="main">
+		          <a class="" href="javascript:;"><i class="layui-icon layui-icon-chart"></i>&nbsp;&nbsp;&nbsp;添加图表</a>
+		        </li>
+		        <li class="layui-nav-item">
+		          <a href="javascript:;"><i  class="layui-icon layui-icon-template-1"></i>&nbsp;&nbsp;&nbsp;数据要求</a>
+		          <dl class="layui-nav-child">
+		            <dd id="zzt"><a href="javascript:void(0)" >柱状图</a></dd>
+		            <dd id="zxt"> <a href="javascript:;">折线图</a></dd>
+		            <dd id="bt"><a href="javascript:;">饼图</a></dd>
+		          </dl>
+		        </li >
+		        <li class="layui-nav-item" id="sysm"><a href="javascript:void(0)"><i class="layui-icon layui-icon-release"></i>&nbsp;&nbsp;&nbsp;使用说明</a></li>
+		      </ul>
+		    </div>
+		  </div>
+		  
+		  <div class="layui-body">
+		    
+		    
+		  </div>
+		  
+		  <div class="layui-footer">
+		    © 数据可视化系统
+		  </div>
+		</div>
+		
+		<script src="static/layui/layui.js" type="text/javascript"></script>
+		<script src="static/index.js" type="text/javascript"></script>
+	</body>
+</html>

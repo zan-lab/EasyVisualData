@@ -1,0 +1,94 @@
+
+<table class="layui-hide" id="list" lay-filter="list"></table>
+ 
+<script type="text/html" id="toolbar">
+  <div class="layui-btn-container">
+    <button class="layui-btn layui-btn-sm" lay-event="addtable">添加图表</button>
+    <button class="layui-btn layui-btn-sm" lay-event="importsettings">导入配置</button>
+    <button class="layui-btn layui-btn-sm" lay-event="exportsettings">导出配置</button>
+  </div>
+</script>
+ 
+<script type="text/html" id="rowbar">
+  <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+      <form class="layui-form" id="testform" style="display:none">
+        <div class="layui-form-item">
+          <label class="layui-form-label">输入框</label>
+          <div class="layui-input-block">
+            <input type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="on" class="layui-input" id="username" style="width:100px">
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label">密码框</label>
+          <div class="layui-input-inline">
+            <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="on" class="layui-input">
+          </div>
+          <div class="layui-form-mid layui-word-aux">辅助文字</div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label">选择框</label>
+          <div class="layui-input-block">
+           <select name="quiz" lay-search>
+        <option value="">请选择</option>
+        <optgroup label="城市记忆">
+          <option value="你工作的第一个城市">你工作的第一个城市？</option>
+        </optgroup>
+        <optgroup label="学生时代">
+          <option value="你的工号">你的工号？</option>
+          <option value="你最喜欢的老师">你最喜欢的老师？</option>
+        </optgroup>
+      </select>
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label">复选框</label>
+          <div class="layui-input-block">
+            <input type="checkbox" name="like[write]" title="写作" lay-skin="primary">
+            <input type="checkbox" name="like[read]" title="阅读" checked lay-skin="primary">
+            <input type="checkbox" name="like[dai]" title="发呆" lay-skin="primary">
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label">开关</label>
+          <div class="layui-input-block">
+            <input type="checkbox" name="switch" lay-skin="switch" lay-text="开启|关闭">
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label">单选框</label>
+          <div class="layui-input-block">
+            <input type="radio" name="sex" value="男" title="男">
+            <input type="radio" name="sex" value="女" title="女" checked>
+          </div>
+        </div>
+        <div class="layui-form-item layui-form-text">
+          <label class="layui-form-label" >文本域</label>
+          <div class="layui-input-block">
+            <textarea lay-verify="required" name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
+          </div>
+        </div>
+      </form>
+
+<script type="text/html" id="xuhao">
+    {{d.LAY_TABLE_INDEX+1}}
+  </script>
+ 
+<script>
+tabledata=[
+		{
+			"tablename":"biaoge1",
+			"filename":"file1",
+			"type":"饼图"
+
+		},
+		{
+			"tablename":"biaoge2",
+			"filename":"file2",
+			"type":"折线图"
+		}
+
+	]
+</script>
+<script src="static/_main.js" type="text/javascript"></script>
