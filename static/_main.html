@@ -5,8 +5,9 @@
   <div class="layui-btn-container">
     <button class="layui-btn layui-btn-sm" lay-event="addtable">添加图表</button>
     <button class="layui-btn layui-btn-sm" lay-event="importsettings">导入配置</button>
-    <button class="layui-btn layui-btn-sm" lay-event="exportsettings">导出配置</button>
+    <button class="layui-btn layui-btn-sm" lay-event="exportsettings">导出所选配置</button>
   </div>
+  <button class="layui-btn layui-btn-sm layui-bg-blue" lay-event="rendertable">生成选中图表</button>
 </script>
  
 <script type="text/html" id="rowbar">
@@ -78,15 +79,15 @@
 <script>
 tabledata=[
 		{
-			"tablename":"biaoge1",
-			"filename":"file1",
-			"type":"饼图"
+			"tablename":"人才培养",
+			"filename":"单列.xlsx",
+			"type":"柱状图"
 
 		},
 		{
-			"tablename":"biaoge2",
-			"filename":"file2",
-			"type":"折线图"
+			"tablename":"教学改革与科学研究",
+			"filename":"单列.xlsx",
+			"type":"柱状图"
 		}
 
 	]

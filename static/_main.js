@@ -88,19 +88,28 @@ layui.use(['table','form'], function(){
 
 
 		})
-      break;
-      case 'importsettings':
-        var data = checkStatus.data;
-        layer.msg('选中了：'+ data.length + ' 个');
-      break;
-      case 'exportsettings':
-        layer.msg(checkStatus.isAll ? '全选': '未全选');
-      break;
-
+		break;
+		case 'importsettings':
+			layer.msg("该功能暂未实现");
+			break;
+		case 'exportsettings':
+       
+			break;
+		case 'rendertable':
+		//获取选中行数据
+			var Data=table.checkStatus('list').data;
+			if(Data.length==0){return layer.msg("请至少选中一条数据！")}
+			jsonData=JSON.stringify(Data);
+			$.ajax({
+				url:"/rendertable",
+				type:"POST",
+				data:jsonData,
+				dataType:'json'
+				
+			});
+			break;
       //自定义头工具栏右侧图标 - 提示
-      case 'LAYTABLE_TIPS':
-        layer.alert('这是工具栏右侧自定义的一个图标按钮');
-      break;
+     
     };
   });
 
@@ -125,7 +134,7 @@ layui.use(['table','form'], function(){
 				var tablename=body.contents().find("#tablename").val();
 				var filename=body.contents().find("#filename").val();
 				var type=body.contents().find("#type").val();
-				console.log(tablename+filename);
+				
 				//处理表单数据
 				if(tablename==""){//对于没有tablename的提示
 					return(layer.msg("输入sheet名！"));

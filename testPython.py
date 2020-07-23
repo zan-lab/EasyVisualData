@@ -3,5 +3,6 @@ import sys
 import ExcelParse as ep
 from common import *
 
-print(getTableName("1.xlsx"))
-print(checkTableName("1.xlsx","人才培养1"))
+str1="哈哈"
+if type(str1)==str:
+    print("true")

@@ -1,6 +1,6 @@
 from random import randrange
 import os
-from flask import Flask, render_template
+from flask import Flask, render_template, json
 from flask import flash, request, redirect, url_for
 from werkzeug.utils import secure_filename
 from Graph import *
@@ -39,7 +39,13 @@ def checktable(filename,tablename):
 def gettable(filename):
     return getTableName(filename)
 
-
+@app.route("/rendertable",methods=["POST"])
+def rendertable():
+    strdata=list(request.form.to_dict().keys())[0]
+    jsondata=json.loads(strdata)
+    #创建对象并处理空数据
+    graph=Graph(jsondata)
+    return graph.render()
 
 #自带函数
 def allowed_file(filename):
