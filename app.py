@@ -1,6 +1,6 @@
 from random import randrange
 import os
-from flask import Flask, render_template, json
+from flask import Flask, render_template, json, make_response, send_file, send_from_directory
 from flask import flash, request, redirect, url_for
 from werkzeug.utils import secure_filename
 from Graph import *
@@ -45,7 +45,13 @@ def rendertable():
     jsondata=json.loads(strdata)
     #创建对象并处理空数据
     graph=Graph(jsondata)
-    return graph.render()
+    resdict=graph.render()
+    return resdict
+
+@app.route("/downloads/<filename>",methods=['GET'])
+def downloads(filename):
+    directory = os.path.abspath('./downloads')  # 规定目录
+    return send_from_directory(directory, filename, as_attachment=True)
 
 #自带函数
 def allowed_file(filename):

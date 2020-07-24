@@ -4,6 +4,7 @@ from pyecharts.charts import Bar, Page,Grid,Pie,Line
 from common import Res
 import os
 import xlrd
+import time
 class Graph:
 
     def __init__(self,tablelist):
@@ -32,7 +33,7 @@ class Graph:
             return filename + "文件打开失败"
         sheetlist=xls.sheet_names()
         if sheetname in sheetlist:
-            return xls.sheets['sheetname']
+            return xls.sheet_by_name(sheetname)
         else:
             return filename+"中的"+sheetname+"不存在"
 
@@ -42,17 +43,66 @@ class Graph:
         return os.path.exists(datafile)
     #获取折线图
     def getLine(self,sheet:xlrd.sheet)->Line:
-        pass
+        #记录第一列的第二个单元格开始的数据，表示横轴
+        xlist=sheet.col_values(0,1)
+        #记录所有的列数据，表示y
+        ylist=dict()
+        for i in range(1,sheet.ncols):
+            ylist[sheet.cell(0,i).value]=sheet.col_values(i,1)
+        c=(
+            Line(init_opts=opts.InitOpts(width="1600px", height="800px"))
+            .add_xaxis(xaxis_data=xlist)
+        )
+        for name,list in ylist.items():
+            c. add_yaxis(
+            series_name=name,
+            y_axis=list
+             )
+        c.set_global_opts(
+            title_opts=opts.TitleOpts(title=sheet.name),
+            tooltip_opts=opts.TooltipOpts(trigger="axis"),#hover时的状态
+            #toolbox_opts=opts.ToolboxOpts(is_show=True),#是否显示工具栏
+            xaxis_opts=opts.AxisOpts(type_="category", boundary_gap=False),
+             )
+
+        return c
+
     #获取饼图
     def getPie(self,sheet:xlrd.sheet) -> Pie:
-        pass
+        names=sheet.col_values(0)
+        values=sheet.col_values(1)
+        c = (
+            Pie()
+                .add(
+                "tooltip 名",
+                list(zip(names, values)),
+                radius=["40%", "75%"],
+            )
+                .set_global_opts(
+                title_opts=opts.TitleOpts(title=sheet.name),
+                legend_opts=opts.LegendOpts(orient="vertical", pos_top="15%", pos_left="2%"),
+            )
+                .set_series_opts(label_opts=opts.LabelOpts(formatter="{b}: {c}"))
+        )
+        return c
+
     #生成柱状图
-    def getBar(TableData) -> Bar:
+    def getBar(self,sheet:xlrd.sheet) -> Bar:
+        # 记录第一列的第二个单元格开始的数据，表示横轴
+        xlist = sheet.col_values(0, 1)
+        # 记录所有的列数据，表示y
+        ylist = dict()
+        for i in range(1, sheet.ncols):
+            ylist[sheet.cell(0, i).value] = sheet.col_values(i, 1)
         c = Bar()
-        c.add_xaxis(TableData.xlist)
-        for k, v in TableData.ylist.items():
+        c.add_xaxis(xlist)
+
+        for k, v in ylist.items():
             c.add_yaxis(k, v)
-        c.set_global_opts(title_opts=opts.TitleOpts(title=TableData.name))
+        c.set_global_opts(
+            title_opts=opts.TitleOpts(title=sheet.name)
+           # legend_opts=opts.LegendOpts( pos_top="15%", pos_left="2%")
+        )
         # c.set_global_opts(xaxis_opts=opts.AxisOpts(axislabel_opts=opts.LabelOpts(font_size=10,interval=0)))
         return c
     #生成charts
@@ -63,6 +113,8 @@ class Graph:
             return self.getLine(sheet)
         elif typename == "饼图":
             return self.getPie(sheet)
+
+    #生成所有图表，放到一个page里
     def render(self):
         page=Page(layout=Page.SimplePageLayout)
         for tabledic in self.tablelist:
@@ -76,13 +128,12 @@ class Graph:
             #返回sheet对象，如果没有则返回出错message
             sheet=self.getSheet(filename,tablename)
             #根据类型来判断是否获取到了
-            if type(sheet)==str:
+            if isinstance(sheet,str):
                 pass
             if not self.checkData(sheet,type):
                 pass
             page.add(self.getCharts(sheet,type))
-        page.render()
-        return Res(msg="已生成")
+        renderfilename=str(int(time.time()))+'.html'
+        page.render(os.path.join('./downloads',renderfilename))
+        return Res(data={'renderfilename':renderfilename},msg="已生成")
 
-        #
-        #还差，找到两个表的数据渲染方法，由sheet生成图表

@@ -104,8 +104,20 @@ layui.use(['table','form'], function(){
 				url:"/rendertable",
 				type:"POST",
 				data:jsonData,
-				dataType:'json'
-				
+				dataType:'json',
+				success:function(data){
+					console.log(data);
+					if(data['code']!=200){
+						layer.confirm(data['msg']);
+					}
+					else{
+						console.log(data['data']);
+						var url='/downloads/';
+						console.log(url+data['data']['renderfilename']);
+						window.location.href=url+data['data']['renderfilename'];
+						
+					}
+				}
 			});
 			break;
       //自定义头工具栏右侧图标 - 提示
