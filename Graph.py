@@ -16,13 +16,17 @@ class Graph:
     #查看数据是否合法
     def checkData(self,sheet:xlrd.sheet,typename)->bool:
         if typename=="柱状图":
-            return True
-            pass
-        elif typename=="折线图":
-            pass
-        elif typename=="饼图":
-            pass
+            if sheet.cell(1,1).ctype==0 or sheet.cell(1,0).ctype==0:
+                return False
+            #空格问题太要命，先不检测数据是否完整了
 
+        elif typename=="折线图":
+            if sheet.cell(1, 1).ctype == 0 or sheet.cell(1, 0).ctype == 0:
+                return False
+        elif typename=="饼图":
+            if sheet.cell(0, 1).ctype == 0 or sheet.cell(0, 0).ctype == 0:
+                return False
+        return True
     #返回sheet对象
     def getSheet(self,filename,sheetname):
         dirpath = os.path.abspath("./uploads")
@@ -50,7 +54,7 @@ class Graph:
         for i in range(1,sheet.ncols):
             ylist[sheet.cell(0,i).value]=sheet.col_values(i,1)
         c=(
-            Line(init_opts=opts.InitOpts(width="1600px", height="800px"))
+            Line(init_opts=opts.InitOpts(theme="chalk"))
             .add_xaxis(xaxis_data=xlist)
         )
         for name,list in ylist.items():
@@ -59,6 +63,7 @@ class Graph:
             y_axis=list
              )
         c.set_global_opts(
+
             title_opts=opts.TitleOpts(title=sheet.name),
             tooltip_opts=opts.TooltipOpts(trigger="axis"),#hover时的状态
             #toolbox_opts=opts.ToolboxOpts(is_show=True),#是否显示工具栏
@@ -72,7 +77,7 @@ class Graph:
         names=sheet.col_values(0)
         values=sheet.col_values(1)
         c = (
-            Pie()
+            Pie(init_opts=opts.InitOpts(theme = "chalk"))
                 .add(
                 "tooltip 名",
                 list(zip(names, values)),
@@ -94,7 +99,7 @@ class Graph:
         ylist = dict()
         for i in range(1, sheet.ncols):
             ylist[sheet.cell(0, i).value] = sheet.col_values(i, 1)
-        c = Bar()
+        c = Bar(init_opts=opts.InitOpts(theme = "wonderland"))
         c.add_xaxis(xlist)
 
         for k, v in ylist.items():
@@ -103,6 +108,8 @@ class Graph:
             title_opts=opts.TitleOpts(title=sheet.name)
            # legend_opts=opts.LegendOpts( pos_top="15%", pos_left="2%")
         )
+
+        #设置x轴大小
         # c.set_global_opts(xaxis_opts=opts.AxisOpts(axislabel_opts=opts.LabelOpts(font_size=10,interval=0)))
         return c
     #生成charts
@@ -116,7 +123,8 @@ class Graph:
 
     #生成所有图表，放到一个page里
     def render(self):
-        page=Page(layout=Page.SimplePageLayout)
+        page=Page(page_title= "数据可视化",layout=Page.SimplePageLayout)
+
         for tabledic in self.tablelist:
             #获取每次的文件名和表名
             filename=tabledic.get('filename')
@@ -124,16 +132,17 @@ class Graph:
             type=tabledic.get('type')
             #判断是否文件存在
             if not self.checkFile(filename):
-                pass
+                return Res(code='-2',msg=filename+"文件不存在")
             #返回sheet对象，如果没有则返回出错message
             sheet=self.getSheet(filename,tablename)
             #根据类型来判断是否获取到了
             if isinstance(sheet,str):
-                pass
+                return Res(code='-2',msg=sheet)
             if not self.checkData(sheet,type):
-                pass
+                return Res(code='-2',msg=sheet.name+"sheet的数据不合理")
             page.add(self.getCharts(sheet,type))
         renderfilename=str(int(time.time()))+'.html'
+        page.add_js_funcs('document.body.style.backgroundColor="rgba(41, 52, 65, 1)"')
         page.render(os.path.join('./downloads',renderfilename))
         return Res(data={'renderfilename':renderfilename},msg="已生成")
 

@@ -1,11 +1,10 @@
-from random import randrange
-import os
 from flask import Flask, render_template, json, make_response, send_file, send_from_directory
 from flask import flash, request, redirect, url_for
-from werkzeug.utils import secure_filename
 from Graph import *
-import ExcelParse as ep
 from common import *
+
+
+#规定上传目录和允许的后缀名
 UPLOAD_FOLDER = './uploads'
 ALLOWED_EXTENSIONS = {'xls','xlsx'}
 

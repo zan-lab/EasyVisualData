@@ -95,36 +95,35 @@ layui.use(['table','form'], function(){
 		case 'exportsettings':
        
 			break;
-		case 'rendertable':
+		
 		//获取选中行数据
-			var Data=table.checkStatus('list').data;
-			if(Data.length==0){return layer.msg("请至少选中一条数据！")}
-			jsonData=JSON.stringify(Data);
-			$.ajax({
-				url:"/rendertable",
-				type:"POST",
-				data:jsonData,
-				dataType:'json',
-				success:function(data){
-					console.log(data);
-					if(data['code']!=200){
-						layer.confirm(data['msg']);
-					}
-					else{
-						console.log(data['data']);
-						var url='/downloads/';
-						console.log(url+data['data']['renderfilename']);
-						window.location.href=url+data['data']['renderfilename'];
-						
-					}
-				}
-			});
-			break;
+			
       //自定义头工具栏右侧图标 - 提示
      
     };
   });
-
+   //监听导出按钮
+	$("#rendertable").on('click',function(){
+		var Data=table.checkStatus('list').data;
+		if(Data.length==0){return layer.msg("请至少选中一条数据！")}
+		jsonData=JSON.stringify(Data);
+		$.ajax({
+			url:"/rendertable",
+			type:"POST",
+			data:jsonData,
+			dataType:'json',
+			success:function(data){
+				if(data['code']!=200){
+					layer.confirm(data['msg']);
+				}
+				else{
+					var url='/downloads/';
+					window.location.href=url+data['data']['renderfilename'];
+				}
+			}
+		});
+		
+	})
   //监听行工具事件
   table.on('tool(list)', function(obj){
 	 var data=obj.data;

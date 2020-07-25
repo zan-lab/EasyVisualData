@@ -1,68 +1,53 @@
 import pyecharts.options as opts
-from pyecharts.charts import Line
+from pyecharts.charts import Line,Page,Bar
 
-"""
+themes = [
+ ('chalk', '粉笔风'),
+ ('dark', '暗黑风'),
+ ('essos', '厄索斯大陆'),
+ ('infographic', '信息图'),
+ ('light', '明亮风格'),
+ ('macarons', '马卡龙'),
+ ('purple-passion', '紫色激情'),
+ ('roma', '石榴'),
+ ('romantic', '浪漫风'),
+ ('shine', '闪耀风'),
+ ('vintage', '复古风'),
+ ('walden', '瓦尔登湖'),
+ ('westeros', '维斯特洛大陆'),
+ ('white', '洁白风'),
+ ('wonderland', '仙境')
+]
 
-目前无法实现的功能:
+months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+snms = ['蒸发量', '降水量']
+data = {
+         snms[0]: [2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3],
+         snms[1]: [2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3]
+        }
 
-1、最低气温的最高值暂时无法和 Echarts 的示例完全复刻
-"""
+a, b = snms
 
-week_name_list = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
-high_temperature = [11, 11, 15, 13, 12, 13, 10]
-low_temperature = [1, -2, 2, 5, 3, 2, 0]
+page = Page(layout=Page.SimplePageLayout)
 
+for i, (e, c) in enumerate(themes):
+    tags = [f'{i + 1}_柱状图基本示例：\n\t\t{e}：（{c}）',
+            '一年的降水量和蒸发量']
+    mt, st = tags
 
-(
-    Line(init_opts=opts.InitOpts(width="1600px", height="800px"))
-    .add_xaxis(xaxis_data=week_name_list)
-    .add_yaxis(
-        series_name="最高气温",
-        y_axis=high_temperature
-        # markpoint_opts=opts.MarkPointOpts(
-        #     data=[
-        #         opts.MarkPointItem(type_="max", name="最大值"),
-        #         opts.MarkPointItem(type_="min", name="最小值"),
-        #     ]
-        # ),
-        # markline_opts=opts.MarkLineOpts(
-        #     data=[opts.MarkLineItem(type_="average", name="平均值")]
-        # ),
-    )
-    # .add_yaxis(
-    #     series_name="最低气温",
-    #     y_axis=low_temperature
-    #     # markpoint_opts=opts.MarkPointOpts(
-    #     #     data=[opts.MarkPointItem(value=-2, name="周最低", x=1, y=-1.5)]
-    #     # ),
-    #     # markline_opts=opts.MarkLineOpts(
-    #     #     data=[
-    #     #         opts.MarkLineItem(type_="average", name="平均值"),
-    #     #         opts.MarkLineItem(symbol="none", x="90%", y="max"),
-    #     #         opts.MarkLineItem(symbol="circle", type_="max", name="最高点"),
-    #     #     ]
-    #     # ),
-    # )
-    .set_global_opts(
-        title_opts=opts.TitleOpts(title="未来一周气温变化", subtitle="纯属虚构"),
-        tooltip_opts=opts.TooltipOpts(trigger="axis"),#hover时的状态
-        toolbox_opts=opts.ToolboxOpts(is_show=True),#是否显示工具栏
-        xaxis_opts=opts.AxisOpts(type_="category", boundary_gap=False),
-    )
-    .render("temperature_change_line_chart.html")
-)
+    # 利用动态变量和共同指向一个对象的赋值特性向 page 添加图像
+    x = '变量别名'
+    locals()[f'bar_{i}'] = x  # 动态变量
+    x = (
+        Bar(init_opts=opts.InitOpts(theme = e))
+        .add_xaxis(xaxis_data=months)
+        .add_yaxis(series_name=a, yaxis_data=data.get(a))
+        .add_yaxis(series_name=b, yaxis_data=data.get(b))
+        .set_global_opts(
+            title_opts = opts.TitleOpts(title = mt,
+                                    subtitle = st))
+           )
 
-(
-    Line(init_opts=opts.InitOpts(width="1600px", height="800px"))
-    .add_xaxis(xaxis_data=week_name_list)
-    .add_yaxis(
-        series_name="最高气温",
-        y_axis=high_temperature
-    )
-    .set_global_opts(
-        title_opts=opts.TitleOpts(title="未来一周气温变化", subtitle="纯属虚构"),
-        tooltip_opts=opts.TooltipOpts(trigger="axis"),#hover时的状态
-        toolbox_opts=opts.ToolboxOpts(is_show=True),#是否显示工具栏
-        xaxis_opts=opts.AxisOpts(type_="category", boundary_gap=False),
-    )
-)
+    page.add(x)
+
+page.render('bar_theme.html')
