@@ -13,6 +13,15 @@ layui.use(['element','table'],function(){
 	})	
 	$("#bt").click(function(){
 		$(".layui-body").load('static/_bingtu.html');
+	})
+	$("#ybp").click(function(){
+		$(".layui-body").load('static/_yibiaopan.html');
+	})	
+	$("#leidatu").click(function(){
+		$(".layui-body").load('static/_leidatu.html');
+	})	
+	$("#loudoutu").click(function(){
+		$(".layui-body").load('static/_loudoutu.html');
 	})		
 	$("#sysm").click(function(){
 		$(".layui-body").load('static/_shiyongshuoming.html');
