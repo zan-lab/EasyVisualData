@@ -17,9 +17,9 @@ layui.use(['element','table'],function(){
 	$("#ybp").click(function(){
 		$(".layui-body").load('static/_yibiaopan.html');
 	})	
-	$("#leidatu").click(function(){
-		$(".layui-body").load('static/_leidatu.html');
-	})	
+	// $("#leidatu").click(function(){
+	// 	$(".layui-body").load('static/_leidatu.html');
+	// })	
 	$("#loudoutu").click(function(){
 		$(".layui-body").load('static/_loudoutu.html');
 	})		

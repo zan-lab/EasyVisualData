@@ -153,8 +153,14 @@ layui.use(['table','form'], function(){
 				else{//检查是否有tablename
 					$.get('/checktablename/'+filename+'/'+tablename,function(data){
 						if(data['code']==0){
-							obj.del();
-							addrow(tablename,filename,type);
+							
+							//obj.del();
+							obj.update({
+								filename:filename,
+								tablename:tablename,
+								type:type
+							})
+							//addrow(tablename,filename,type);
 							layer.msg("修改成功!");
 							layer.close(index);
 						}

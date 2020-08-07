@@ -34,7 +34,7 @@ class Graph:
                 return False
         elif typename=="雷达图":
             #检查 是否maxvalue齐全
-            if 0 in sheet.col_types(1,1):
+            if 0 in sheet.col_types(1,1) or 0 in sheet.col_types(2,1):
                 return False
             #检查每个value是否小于等于maxvalue
             for j in range(2,sheet.ncols):
