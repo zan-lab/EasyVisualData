@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>数据可视化</title>
+            <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+        <script type="text/javascript" src="https://assets.pyecharts.org/assets/themes/chalk.js"></script>
+        <script type="text/javascript" src="https://assets.pyecharts.org/assets/themes/wonderland.js"></script>
+
+    
+</head>
+<body>
+    <style>.box { justify-content:center; display:flex; flex-wrap:wrap;  }; </style>
+    <div class="box">
+                <div id="4bd612870dd04340b012972fd30da77f" class="chart-container" style="width:900px; height:500px;"></div>
+    <script>
+        var chart_4bd612870dd04340b012972fd30da77f = echarts.init(
+            document.getElementById('4bd612870dd04340b012972fd30da77f'), 'chalk', {renderer: 'canvas'});
+        var option_4bd612870dd04340b012972fd30da77f = {
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "series": [
+        {
+            "type": "pie",
+            "name": "tooltip \u540d",
+            "clockwise": true,
+            "data": [
+                {
+                    "name": "\u5403\u996d",
+                    "value": 10.0
+                },
+                {
+                    "name": "\u6253\u6e38\u620f",
+                    "value": 50.0
+                },
+                {
+                    "name": "\u7761\u89c9",
+                    "value": 22.2
+                }
+            ],
+            "radius": [
+                "40%",
+                "75%"
+            ],
+            "center": [
+                "50%",
+                "50%"
+            ],
+            "label": {
+                "show": true,
+                "position": "top",
+                "margin": 8,
+                "formatter": "{b}: {c}"
+            },
+            "rippleEffect": {
+                "show": true,
+                "brushType": "stroke",
+                "scale": 2.5,
+                "period": 4
+            }
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                "\u5403\u996d",
+                "\u6253\u6e38\u620f",
+                "\u7761\u89c9"
+            ],
+            "selected": {},
+            "show": true,
+            "left": "2%",
+            "top": "15%",
+            "orient": "vertical",
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "textStyle": {
+            "fontSize": 14
+        },
+        "borderWidth": 0
+    },
+    "title": [
+        {
+            "text": "\u997c\u56fe",
+            "padding": 5,
+            "itemGap": 10
+        }
+    ]
+};
+        chart_4bd612870dd04340b012972fd30da77f.setOption(option_4bd612870dd04340b012972fd30da77f);
+    </script>
+<br/>                <div id="33340ba7df624d248617558281a72bea" class="chart-container" style="width:900px; height:500px;"></div>
+    <script>
+        var chart_33340ba7df624d248617558281a72bea = echarts.init(
+            document.getElementById('33340ba7df624d248617558281a72bea'), 'wonderland', {renderer: 'canvas'});
+        var option_33340ba7df624d248617558281a72bea = {
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "series": [
+        {
+            "type": "bar",
+            "name": "\u65f6\u95f4\u5360\u6bd4",
+            "data": [
+                10.0,
+                50.0,
+                22.2
+            ],
+            "barCategoryGap": "20%",
+            "label": {
+                "show": true,
+                "position": "top",
+                "margin": 8
+            }
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                "\u65f6\u95f4\u5360\u6bd4"
+            ],
+            "selected": {
+                "\u65f6\u95f4\u5360\u6bd4": true
+            },
+            "show": true,
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "textStyle": {
+            "fontSize": 14
+        },
+        "borderWidth": 0
+    },
+    "xAxis": [
+        {
+            "show": true,
+            "scale": false,
+            "nameLocation": "end",
+            "nameGap": 15,
+            "gridIndex": 0,
+            "inverse": false,
+            "offset": 0,
+            "splitNumber": 5,
+            "minInterval": 0,
+            "splitLine": {
+                "show": false,
+                "lineStyle": {
+                    "show": true,
+                    "width": 1,
+                    "opacity": 1,
+                    "curveness": 0,
+                    "type": "solid"
+                }
+            },
+            "data": [
+                "\u5403\u996d",
+                "\u6253\u6e38\u620f",
+                "\u7761\u89c9"
+            ]
+        }
+    ],
+    "yAxis": [
+        {
+            "show": true,
+            "scale": false,
+            "nameLocation": "end",
+            "nameGap": 15,
+            "gridIndex": 0,
+            "inverse": false,
+            "offset": 0,
+            "splitNumber": 5,
+            "minInterval": 0,
+            "splitLine": {
+                "show": false,
+                "lineStyle": {
+                    "show": true,
+                    "width": 1,
+                    "opacity": 1,
+                    "curveness": 0,
+                    "type": "solid"
+                }
+            }
+        }
+    ],
+    "title": [
+        {
+            "text": "\u67f1\u72b6\u56fe",
+            "padding": 5,
+            "itemGap": 10
+        }
+    ]
+};
+        chart_33340ba7df624d248617558281a72bea.setOption(option_33340ba7df624d248617558281a72bea);
+    </script>
+<br/>    </div>
+    <script>
+            document.body.style.backgroundColor="rgba(41, 52, 65, 1)"
+    </script>
+</body>
+</html>
