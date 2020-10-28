@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+.wenzi1 {
+    font-size: 20px;
+}
+
+.tu1 {
+	margin-left: 30px;
+}
+.p_img p{
+    margin: 15px 0px 10px 20px;
+}
+
+.p_img img{
+    margin: 0px 0px 15px 45px;
+}
