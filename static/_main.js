@@ -9,6 +9,7 @@ layui.use(['table','form'], function(){
 	,data:tabledata
     ,toolbar: '#toolbar' //开启头部工具栏，并为其绑定左侧模板
     ,title: '导出数据表'
+    ,limit:30
     ,cols: [[
 		{checkbox: true, fixed: true}
 		,{title: '序号',templet: '#xuhao'}
@@ -19,8 +20,18 @@ layui.use(['table','form'], function(){
     ]]
     ,page: true
   });
+  var nowData=table.cache['list'];
   //定义增加一行数据的函数
-	var addrow=function(tablename,filename,type="柱状图"){
+	var addrows=function(tablename,filename){
+			//nowData=table.cache['list'];
+			nowData.push({
+				tablename:tablename,
+				filename:filename,
+				type:"柱状图"
+			})
+			//table.reload('list',{data:oldData});
+		}
+		var addrow=function(tablename,filename,type="柱状图"){
 			var oldData=table.cache['list'];
 			oldData.push({
 				tablename:tablename,
@@ -29,7 +40,6 @@ layui.use(['table','form'], function(){
 			})
 			table.reload('list',{data:oldData});
 		}
-			
   //头工具栏事件
   table.on('toolbar(list)', function(obj){
     var checkStatus = table.checkStatus(obj.config.id);
@@ -55,11 +65,13 @@ layui.use(['table','form'], function(){
 				if(tablename==""){//对于没有tablename的按照批量导入计算
 					$.get('/gettablename/'+filename,function(data){
 						if(data['code']=="0"){
+						    nowData=table.cache['list'];
 							$.each(data['data'],function(i,item){
-								addrow(item,filename);
-								layer.msg("添加成功!");
-								layer.close(index);
-							})
+								addrows(item,filename);
+							});
+							table.reload('list',{data:nowData});
+							layer.msg("添加成功!");
+							layer.close(index);
 						}
 						else {
 							layer.msg(data.msg);
