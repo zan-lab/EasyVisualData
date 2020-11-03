@@ -89,6 +89,9 @@ layui.use(['table','form'], function(){
 
 		})
 		break;
+		case 'download_test_data':
+            window.location.href="/downloads/demo"
+		    break;
 		case 'importsettings':
 			layer.msg("该功能暂未实现");
 			break;

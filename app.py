@@ -46,7 +46,10 @@ def rendertable():
     graph=Graph(jsondata)
     resdict=graph.render()
     return resdict
-
+@app.route("/downloads/demo",methods=['GET'])
+def downloadsDemoData():
+    directory = os.path.abspath('./templates')
+    return send_from_directory(directory, 'demo.xlsx', as_attachment=True)
 @app.route("/downloads/<filename>",methods=['GET'])
 def downloads(filename):
     directory = os.path.abspath('./downloads')  # 规定目录
