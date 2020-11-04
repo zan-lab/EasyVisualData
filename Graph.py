@@ -84,8 +84,8 @@ class Graph:
             tooltip_opts=opts.TooltipOpts(trigger="axis"),#hover时的状态
             #toolbox_opts=opts.ToolboxOpts(is_show=True),#是否显示工具栏
             xaxis_opts=opts.AxisOpts(type_="category", boundary_gap=False),
+            legend_opts=opts.LegendOpts(pos_left="20%", pos_top='5%')
              )
-
         return c
 
     #获取饼图
@@ -121,8 +121,8 @@ class Graph:
         for k, v in ylist.items():
             c.add_yaxis(k, v)
         c.set_global_opts(
-            title_opts=opts.TitleOpts(title=sheet.name)
-           # legend_opts=opts.LegendOpts( pos_top="15%", pos_left="2%")
+            title_opts=opts.TitleOpts(title=sheet.name+"\n",pos_left='left',title_textstyle_opts={'color':'#FFFFFF'}),
+            legend_opts=opts.LegendOpts(  pos_left="20%",pos_top='5%')
         )
 
         #设置x轴大小
@@ -194,6 +194,7 @@ class Graph:
         return r
     #生成charts
     def getCharts(self,sheet,typename)->charts:
+        sheet.name=sheet.name+"\n"
         if typename == "柱状图":
             return self.getBar(sheet)
         elif typename == "折线图":
@@ -209,7 +210,7 @@ class Graph:
 
     #生成所有图表，放到一个page里
     def render(self):
-        page=Page(page_title= "数据可视化",layout=Page.SimplePageLayout)
+        page=Page(page_title= "数据展示",layout=Page.SimplePageLayout)
 
         for tabledic in self.tablelist:
             #获取每次的文件名和表名
