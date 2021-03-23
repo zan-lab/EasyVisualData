@@ -36,3 +36,8 @@
 3. requirements.txt下载所需要的第三方库
 4. 运行app.py，访问127.0.0.1:5000即可。支持放到服务器上，请搜索flask的部署功能
 
+
+## 贡献者
+
+junjiujiu
+Blue-ljj
